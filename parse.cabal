@@ -13,6 +13,7 @@ library
       Expr
       Mega
       ShuntingYard
+      UriParser
   other-modules:
       Paths_parse
   hs-source-dirs:

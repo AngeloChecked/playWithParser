@@ -15,6 +15,12 @@ mySequence = do
   c <- char 'c'
   return (a, b, c)
 
+mySequence' :: Parser (Char, Char, Char)
+mySequence' =
+  (,,) <$> char 'a'
+       <*> char 'b'
+       <*> char 'c'
+
 megaMain :: IO ()
 megaMain = do
   parseTest (satisfy (== 'a') :: Parser Char) ""
@@ -29,3 +35,12 @@ megaMain = do
   parseTest (string' "foo" :: Parser Text) "FOO"
   parseTest (string' "foo" :: Parser Text) "FoO"
   parseTest (string' "foo" :: Parser Text) "FoZ"
+  parseTest mySequence "abc"
+  parseTest mySequence "bcd"
+  parseTest mySequence "bcd"
+  parseTest mySequence' "abc"
+  parseTest (many (char 'a') :: Parser [Char]) "aaa"
+  parseTest (many (char 'a') :: Parser [Char]) "aabbb"
+  parseTest (many (char 'a') <* eof :: Parser [Char]) "aabbb"
+	
+	
