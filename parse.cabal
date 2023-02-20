@@ -1,0 +1,72 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           parse
+version:        0.1.0.0
+build-type:     Simple
+
+library
+  exposed-modules:
+      Expr
+      Mega
+      ShuntingYard
+  other-modules:
+      Paths_parse
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , hint
+    , hspec
+    , megaparsec
+    , mtl
+    , text
+    , text-show
+  default-language: Haskell2010
+
+executable parse-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_parse
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , hint
+    , hspec
+    , megaparsec
+    , mtl
+    , parse
+    , text
+    , text-show
+  default-language: Haskell2010
+
+test-suite parse-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      DummySpec
+      Test1Spec
+      Test2Spec
+      Paths_parse
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , hint
+    , hspec
+    , megaparsec
+    , mtl
+    , parse
+    , text
+    , text-show
+  default-language: Haskell2010
