@@ -7,7 +7,7 @@ import TextShow
 data Expr a = Lit a
             | Add (Expr a) (Expr a)
             | Mult (Expr a) (Expr a)
-    deriving (Show, Read)
+    deriving (Show, Read, Eq)
 
 myeval :: Num a => Expr a -> a
 myeval (Lit e) = e

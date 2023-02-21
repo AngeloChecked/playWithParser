@@ -10,6 +10,7 @@ dependencies:
 - text
 - megaparsec
 - containers
+- parser-combinators
 
 
 ghc-options: [ -Wall , -Wcompat , -Widentities , -Wincomplete-record-updates , -Wincomplete-uni-patterns ,  -Wmissing-home-modules , -Wpartial-fields , -Wredundant-constraints ]
